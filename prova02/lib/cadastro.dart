@@ -30,6 +30,18 @@ class CadastroState extends State<Cadastro> {
     return null;
   }
 
+  Widget buildTextCadastro(){
+   return const Text(
+      "Cadastro",
+      style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w400,
+            color: Colors.blue,
+      ),
+      textAlign: TextAlign.center,
+      );
+  }
+
   Widget buildCampoNome() {
     return TextFormField(
       autofocus: true,
@@ -106,6 +118,8 @@ class CadastroState extends State<Cadastro> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                buildTextCadastro(),
+                const SizedBox(height: 20),
                 buildCampoNome(),
                 const SizedBox(height: 20),
                 buildCampoEmail(),

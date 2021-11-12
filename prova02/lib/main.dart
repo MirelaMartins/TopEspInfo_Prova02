@@ -14,7 +14,7 @@ class LoginApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
-            title: const Text('Login'),
+            title: const Text(''),
           ),
           body: const Login(),
         ));

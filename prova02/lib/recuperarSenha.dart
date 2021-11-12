@@ -21,17 +21,32 @@ class RecuperarSenhaState extends State<RecuperarSenha> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController controller = TextEditingController();
 
+  Widget buildTextSenha(){
+   // ignore: prefer_const_constructors
+   return const Text(
+      "Recuperar Senha",
+      style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.w400,
+            color: Colors.blue,
+      ),
+      textAlign: TextAlign.center,
+      );
+  }
+
   Widget buildTextEmail(){
    // ignore: prefer_const_constructors
    return const Text(
       "Por favor, informe o seu email que enviaremos um link para o mesmo com as instruções para restauração de sua senha.",
       style: TextStyle(
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: FontWeight.w400,
       ),
       textAlign: TextAlign.center,
       );
   }
+
+
   Widget buildCampoEmail() {
     return TextFormField(
       autofocus: true,
@@ -84,6 +99,8 @@ class RecuperarSenhaState extends State<RecuperarSenha> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                buildTextSenha(),
+                const SizedBox(height: 20),
                 buildTextEmail(),
                 const SizedBox(height: 20),
                 buildCampoEmail(),

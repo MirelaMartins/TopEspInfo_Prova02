@@ -29,6 +29,19 @@ class ScreenLoginState extends State<Login> {
     return null;
   }
 
+  Widget buildTexLogin(){
+   // ignore: prefer_const_constructors
+   return const Text(
+      "Login",
+      style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.w400,
+            color: Colors.blue,
+      ),
+      textAlign: TextAlign.center,
+      );
+  }
+
   Widget buildCampoUsuario() {
     return TextFormField(
       autofocus: true,
@@ -112,6 +125,8 @@ class ScreenLoginState extends State<Login> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                buildTexLogin(),
+                const SizedBox(height: 20),
                 buildCampoUsuario(),
                 const SizedBox(height: 20),
                 buildCampoSenha(),
