@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:prova02/api/backend.dart';
 import 'package:prova02/login.dart';
 
 
@@ -13,10 +14,10 @@ class Cadastro extends StatefulWidget {
   }
 }
 class CadastroState extends State<Cadastro> {
-  late String primeiroCampo;
-  late String segundoCampo;
-  late String terceiroCampo;
-  late String resultado;
+  final Api api = Api();
+  late String nome;
+  late String email;
+  late String senha;
 
   int operation = 1;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -50,7 +51,7 @@ class CadastroState extends State<Cadastro> {
           border: OutlineInputBorder(),
           icon: Icon(Icons.account_box_outlined),
           labelText: 'Nome'),
-      onSaved: (value) => setState(() => primeiroCampo = value!),
+      onSaved: (value) => setState(() => nome = value!),
     );
   }
 
@@ -62,7 +63,7 @@ class CadastroState extends State<Cadastro> {
           border: OutlineInputBorder(),
           icon: Icon(Icons.email_outlined),
           labelText: 'Email'),
-      onSaved: (value) => setState(() => segundoCampo = value!),
+      onSaved: (value) => setState(() => email = value!),
     );
   }
 
@@ -75,18 +76,45 @@ class CadastroState extends State<Cadastro> {
           border: OutlineInputBorder(),
           icon: Icon(Icons.lock_outline),
           labelText: 'Senha'),
-      onSaved: (value) => setState(() => terceiroCampo = value!),
+      onSaved: (value) => setState(() => senha = value!),
     );
   }
+
+  Future<dynamic> invalidCredentials() => showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Ooops! :/'),
+          content: const Text("Dados inválidos! Não foi possível realizar o cadastro"),
+          actions: [
+            TextButton(
+              child: const Text("Ok"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+      });
 
   Widget buildBotaoCadastrar() {
     return ElevatedButton(
         child: const Text('Cadastrar',
             style: TextStyle(color: Colors.white, fontSize: 14)),
-        onPressed: () {
+        onPressed: () async {
           final isValid = _formKey.currentState!.validate();
           if (isValid) {
             _formKey.currentState!.save();
+            // ignore: unused_local_variable
+            final user = await api.create(nome, email, senha);
+            if (user != null) {
+            Navigator.pop(
+              context,
+              MaterialPageRoute(builder: (context) => const Login()),
+            );
+            } else {
+              invalidCredentials();
+            }
           }
         });
   }

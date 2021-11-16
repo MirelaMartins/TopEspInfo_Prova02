@@ -18,7 +18,6 @@ class ScreenLoginState extends State<Login> {
   final Api api = Api();
   late String email;
   late String senha;
-  late String resultado;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController controller = TextEditingController();
@@ -73,8 +72,8 @@ class ScreenLoginState extends State<Login> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Usuário ou senha inválido'),
-          content: const Text("Não foi possível realizar o login"),
+          title: const Text('Ooops! :/'),
+          content: const Text("Dados inválidos! Não foi possível realizar o login"),
           actions: [
             TextButton(
               child: const Text("Ok"),

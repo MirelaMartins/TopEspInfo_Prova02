@@ -14,8 +14,7 @@ class RecuperarSenha extends StatefulWidget {
   }
 }
 class RecuperarSenhaState extends State<RecuperarSenha> {
-  late String primeiroCampo;
-  late String resultado;
+  late String email;
 
   int operation = 1;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -55,7 +54,7 @@ class RecuperarSenhaState extends State<RecuperarSenha> {
           border: OutlineInputBorder(),
           icon: Icon(Icons.email_outlined),
           labelText: 'Email'),
-      onSaved: (value) => setState(() => primeiroCampo = value!),
+      onSaved: (value) => setState(() => email = value!),
     );
   }
 
