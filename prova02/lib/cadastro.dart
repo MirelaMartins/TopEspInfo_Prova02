@@ -106,7 +106,7 @@ class CadastroState extends State<Cadastro> {
           if (isValid) {
             _formKey.currentState!.save();
             // ignore: unused_local_variable
-            final user = await api.create(nome, email, senha);
+            final user = await api.create(email, nome, senha);
             if (user != null) {
             Navigator.pop(
               context,

@@ -22,15 +22,7 @@ class ScreenLoginState extends State<Login> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController controller = TextEditingController();
 
-  String? numeroValido(value) {
-    final valorCampo = num.tryParse(value);
-    if (valorCampo == null) {
-      return 'Digite um valor válido!';
-    }
-    return null;
-  }
-
-  Widget buildTexLogin(){
+  Widget buildTextLogin(){
    // ignore: prefer_const_constructors
    return const Text(
       "Login",
@@ -154,7 +146,7 @@ class ScreenLoginState extends State<Login> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                buildTexLogin(),
+                buildTextLogin(),
                 const SizedBox(height: 20),
                 buildCampoUsuario(),
                 const SizedBox(height: 20),
