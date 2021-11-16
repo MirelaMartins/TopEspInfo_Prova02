@@ -1,0 +1,63 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb-typescript/base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "ignorePatterns": [
+    "jest.config.js"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "import"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "tests/**"
+      ],
+      "plugins": [
+        "jest"
+      ],
+      "rules": {
+        "@typescript-eslint/unbound-method": "off",
+        "jest/unbound-method": "error"
+      }
+    }
+  ],
+  "rules": {
+    "class-methods-use-this": "off",
+    "newline-after-var": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/no-throw-literal": "off",
+    "max-len": "off",
+    "@typescript-eslint/naming-convention": "off",
+    "no-underscore-dangle": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
+}

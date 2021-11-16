@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:prova02/api/backend.dart';
 import 'package:prova02/cadastro.dart';
+import 'package:prova02/home.dart';
 import 'package:prova02/recuperarSenha.dart';
 
 class Login extends StatefulWidget {
@@ -13,11 +15,11 @@ class Login extends StatefulWidget {
 }
 
 class ScreenLoginState extends State<Login> {
-  late String primeiroCampo;
-  late String segundoCampo;
+  final Api api = Api();
+  late String email;
+  late String senha;
   late String resultado;
 
-  int operation = 1;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController controller = TextEditingController();
 
@@ -49,8 +51,8 @@ class ScreenLoginState extends State<Login> {
       decoration: const InputDecoration(
           border: OutlineInputBorder(),
           icon: Icon(Icons.account_box_outlined),
-          labelText: 'Usuário'),
-      onSaved: (value) => setState(() => primeiroCampo = value!),
+          labelText: 'Email'),
+      onSaved: (value) => setState(() => email = value!),
     );
   }
 
@@ -63,18 +65,46 @@ class ScreenLoginState extends State<Login> {
           border: OutlineInputBorder(),
           icon: Icon(Icons.lock_outline),
           labelText: 'Senha'),
-      onSaved: (value) => setState(() => segundoCampo = value!),
+      onSaved: (value) => setState(() => senha = value!),
     );
   }
+
+  Future<dynamic> invalidCredentials() => showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Usuário ou senha inválido'),
+          content: const Text("Não foi possível realizar o login"),
+          actions: [
+            TextButton(
+              child: const Text("Ok"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        );
+    });
 
   Widget buildBotaoEntrar() {
     return ElevatedButton(
         child: const Text('Entrar',
             style: TextStyle(color: Colors.white, fontSize: 14)),
-        onPressed: () {
+        onPressed: () async {
           final isValid = _formKey.currentState!.validate();
           if (isValid) {
             _formKey.currentState!.save();
+            // ignore: unused_local_variable
+            final name = await api.login(email, senha);
+            if (name != null) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Home(name)),
+            );
+          } else {
+            invalidCredentials();
+          }
+            //chamar Api, tratar retorno, redirecionar
           }
         });
   }
