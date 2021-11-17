@@ -37,7 +37,7 @@ class CadastroState extends State<Cadastro> {
       style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w400,
-            color: Colors.blue,
+            color: Colors.purple,
       ),
       textAlign: TextAlign.center,
       );
@@ -132,7 +132,7 @@ class CadastroState extends State<Cadastro> {
       },
         child: const Text('Cancelar',
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.blue, fontSize: 14)),
+            style: TextStyle(color: Colors.purple, fontSize: 14)),
            
         );
   }

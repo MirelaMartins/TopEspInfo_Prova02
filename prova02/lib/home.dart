@@ -21,6 +21,6 @@ class HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             textBaseline: TextBaseline.alphabetic,
-            children: <Widget>[Text('Bem vindo ${widget.name}!')]),
+            children: <Widget>[Text('Olá, ${widget.name}!')]),
       ));
 }

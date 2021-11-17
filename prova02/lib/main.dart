@@ -10,7 +10,7 @@ class LoginApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: "Prova 02",
-        theme: ThemeData(primarySwatch: Colors.blue),
+        theme: ThemeData(primarySwatch: Colors.purple),
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(

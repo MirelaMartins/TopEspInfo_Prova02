@@ -27,7 +27,7 @@ class RecuperarSenhaState extends State<RecuperarSenha> {
       style: TextStyle(
             fontSize: 22,
             fontWeight: FontWeight.w400,
-            color: Colors.blue,
+            color: Colors.purple,
       ),
       textAlign: TextAlign.center,
       );
@@ -84,7 +84,7 @@ class RecuperarSenhaState extends State<RecuperarSenha> {
       },
         child: const Text('Cancelar',
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.blue, fontSize: 14)),
+            style: TextStyle(color: Colors.purple, fontSize: 14)),
            
         );
   }
