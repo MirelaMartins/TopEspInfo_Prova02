@@ -80,7 +80,7 @@ class CadastroState extends State<Cadastro> {
     );
   }
 
-  Future<dynamic> invalidCredentials() => showDialog(
+  Future<dynamic> dadosValidos() => showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
@@ -113,7 +113,7 @@ class CadastroState extends State<Cadastro> {
               MaterialPageRoute(builder: (context) => const Login()),
             );
             } else {
-              invalidCredentials();
+              dadosValidos();
             }
           }
         });
@@ -139,6 +139,7 @@ class CadastroState extends State<Cadastro> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: const Text("")),
         body: Container(
           margin: const EdgeInsets.all(24),
           child: Form(

@@ -60,7 +60,7 @@ class ScreenLoginState extends State<Login> {
     );
   }
 
-  Future<dynamic> invalidCredentials() => showDialog(
+  Future<dynamic> dadosValidos() => showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
@@ -93,8 +93,8 @@ class ScreenLoginState extends State<Login> {
               MaterialPageRoute(builder: (context) => Home(name)),
             );
           } else {
-            invalidCredentials();
-          }
+              dadosValidos();
+            }
             //chamar Api, tratar retorno, redirecionar
           }
         });
@@ -114,10 +114,8 @@ class ScreenLoginState extends State<Login> {
         child: const Text('Esqueceu a senha?',
             textAlign: TextAlign.right,
             style: TextStyle(color: Colors.purple, fontSize: 14)),
-           
         );
   }
-  
 
   Widget buildBotaoCadastrar() {
     // ignore: deprecated_member_use
@@ -133,12 +131,12 @@ class ScreenLoginState extends State<Login> {
         child: const Text('Cadastrar-se',
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.purple, fontSize: 14)),
-           
         );
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: const Text("")),
         body: Container(
           margin: const EdgeInsets.all(24),
           child: Form(

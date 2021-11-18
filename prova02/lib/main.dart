@@ -12,11 +12,8 @@ class LoginApp extends StatelessWidget {
         title: "Prova 02",
         theme: ThemeData(primarySwatch: Colors.purple),
         debugShowCheckedModeBanner: false,
-        home: Scaffold(
-          appBar: AppBar(
-            title: const Text(''),
-          ),
-          body: const Login(),
+        home: const Scaffold(
+          body: Login(),
         ));
   }
 }

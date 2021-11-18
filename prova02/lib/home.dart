@@ -21,6 +21,15 @@ class HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             textBaseline: TextBaseline.alphabetic,
-            children: <Widget>[Text('Olá, ${widget.name}!')]),
+            children: <Widget>[
+              Text(
+                'Olá, ${widget.name}!',
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w200,
+                  color: Colors.purple,
+                ),
+              )
+            ]),
       ));
 }

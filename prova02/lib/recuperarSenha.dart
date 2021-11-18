@@ -45,7 +45,6 @@ class RecuperarSenhaState extends State<RecuperarSenha> {
       );
   }
 
-
   Widget buildCampoEmail() {
     return TextFormField(
       autofocus: true,
@@ -57,7 +56,6 @@ class RecuperarSenhaState extends State<RecuperarSenha> {
       onSaved: (value) => setState(() => email = value!),
     );
   }
-
 
   Widget buildBotaoRecuperar() {
     return ElevatedButton(
@@ -85,12 +83,12 @@ class RecuperarSenhaState extends State<RecuperarSenha> {
         child: const Text('Cancelar',
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.purple, fontSize: 14)),
-           
         );
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: const Text("")),
         body: Container(
           margin: const EdgeInsets.all(24),
           child: Form(
